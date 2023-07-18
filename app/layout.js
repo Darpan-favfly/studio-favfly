@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
         <main className="bg-muted-100 dark:bg-muted-900">
           <Header />
           <Sidebar />
-          <div className="bg-muted-100 dark:bg-muted-900 dark:text-white relative min-h-screen w-full overflow-x-hidden transition-all duration-300 px-4 lg:px-10 xl:max-w-[calc(100%_-_80px)] lg:ms-[80px]">
+          <div className="bg-muted-100 dark:bg-muted-900 dark:text-white relative min-h-screen w-full overflow-x-hidden transition-all duration-300 px-4 lg:px-10 lg:max-w-[calc(100%_-_80px)] lg:ms-[80px]">
             {children}
           </div>
           <BottomBar />

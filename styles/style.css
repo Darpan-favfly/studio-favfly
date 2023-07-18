@@ -42,6 +42,18 @@
 .hover\:text-primary-500:hover {
   color: rgb(var(--color-primary-500) / 1);
 }
+
+.text-success-500 {
+  --tw-text-opacity: 1;
+  color: #14b8a6;
+  color: rgb(20 184 166 / var(--tw-text-opacity));
+}
+
+.text-warning-500 {
+  --tw-text-opacity: 1;
+  color: #f59e0b;
+  color: rgb(245 158 11 / var(--tw-text-opacity));
+}
 /* ==== end text styles ===== */
 
 /* ==== start background styles ===== */
@@ -79,6 +91,11 @@
   border-color: rgb(var(--color-muted-300) / var(--tw-border-opacity));
 }
 
+.hover\:border-primary-500:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--color-primary-500) / var(--tw-border-opacity));
+}
+
 .group:hover .group-hover\:ring-primary-500 {
   --tw-ring-color: rgb(var(--color-primary-500) / 1);
 }
@@ -114,7 +131,6 @@
 /* ===== end placeholder classes =====  */
 
 /* ===== start nui classes =====  */
-
 .nui-focus {
   outline-color: transparent;
   outline-offset: 2px;
@@ -140,6 +156,11 @@
   outline-color: rgb(var(--color-muted-300) / 1);
 }
 
+.nui-bg-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-muted-50) / 1);
+  background-color: rgb(var(--color-muted-50) / var(--tw-bg-opacity));
+}
 /* ===== end nui classes =====  */
 
 /* ===== start tooltips styles ===== */
@@ -218,6 +239,18 @@
   bottom: auto;
   border-left-color: #333;
 }
+[data-tooltip][class*="tooltip-left"]:before {
+  transform: translate(-24px, -50%);
+}
+
+[data-tooltip][class*="tooltip-left"]:before {
+  left: auto;
+  right: 50%;
+  top: 50%;
+  bottom: auto;
+  border-right-color: #333;
+}
+
 /* ===== end tooltips styles ===== */
 
 /* ===== start dark mode classes =====  */
