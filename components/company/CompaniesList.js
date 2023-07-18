@@ -159,7 +159,7 @@ const CompanyListItem = () => {
 
 const Filter = () => {
   return (
-    <div className="mb-6 flex w-full flex-col items-center justify-between gap-4 sm:flex-row">
+    <div className="mb-6 flex w-full flex-col items-center justify-between gap-4 sm:flex-row pt-2">
       <div className="flex w-full items-center gap-4 sm:w-auto">
         <div className="relative w-full sm:w-auto">
           <div className="group/nui-input relative">

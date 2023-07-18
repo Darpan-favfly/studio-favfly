@@ -6,7 +6,8 @@ import {
   FiLinkedin,
   FiTwitter,
   FiPhone,
-  FiCalendar,
+  FiSearch,
+  FiPlus,
 } from "react-icons/fi";
 import { BsWhatsapp } from "react-icons/bs";
 import Link from "next/link";
@@ -14,19 +15,21 @@ import Link from "next/link";
 const UserList = () => {
   return (
     <>
-      <div>
-        <div className="ltablet:grid-cols-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5">
-          <UserListItem />
-          <UserListItem />
-          <UserListItem />
-          <UserListItem />
-          <UserListItem warning={true} />
-          <UserListItem />
-          <UserListItem />
-          <UserListItem warning={true} />
-          <UserListItem />
-          <UserListItem />
-        </div>
+      {/* ===== filter ===== */}
+      <Filter />
+
+      {/* ===== user list ===== */}
+      <div className="ltablet:grid-cols-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5">
+        <UserListItem />
+        <UserListItem />
+        <UserListItem />
+        <UserListItem />
+        <UserListItem warning={true} />
+        <UserListItem />
+        <UserListItem />
+        <UserListItem warning={true} />
+        <UserListItem />
+        <UserListItem />
       </div>
     </>
   );
@@ -133,6 +136,42 @@ const UserListItem = ({ warning }) => {
             <span>Talk</span>
           </button>
         </div>
+      </div>
+    </div>
+  );
+};
+
+const Filter = () => {
+  return (
+    <div className="mb-6 flex w-full flex-col items-center justify-between gap-4 sm:flex-row pt-2">
+      <div className="flex w-full items-center gap-4 sm:w-auto">
+        <div className="relative w-full sm:w-auto">
+          <div className="group/nui-input relative">
+            <input
+              id="ninja-input-13"
+              type="text"
+              className="nui-focus border-muted-300 text-muted-600 placeholder:text-muted-300 dark:border-muted-700 dark:bg-muted-900/75 dark:text-muted-200 dark:placeholder:text-muted-500 dark:focus:border-muted-700 peer w-full border bg-white font-sans transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-75 px-2 h-10 py-2 text-sm leading-5 pe-4 ps-9 rounded"
+              placeholder="Filter users..."
+            />
+
+            <div className="text-muted-400 group-focus-within/nui-input:text-primary-500 absolute start-0 top-0 flex items-center justify-center transition-colors duration-300 peer-disabled:cursor-not-allowed peer-disabled:opacity-75 h-10 w-10">
+              <FiSearch className="icon h-[1.15rem] w-[1.15rem]" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex w-full items-center justify-end gap-4 sm:w-auto">
+        <button
+          type="button"
+          className="is-button rounded is-button-default w-full sm:w-32">
+          Manage
+        </button>
+        <button
+          type="button"
+          className="is-button rounded bg-primary-500 dark:bg-primary-500 hover:enabled:bg-primary-400 dark:hover:enabled:bg-primary-400 text-white hover:enabled:shadow-lg hover:enabled:shadow-primary-500/50 dark:hover:enabled:shadow-primary-800/20 focus-visible:outline-primary-400/70 focus-within:outline-primary-400/70 focus-visible:bg-primary-500 active:enabled:bg-primary-500 dark:focus-visible:outline-primary-400 dark:focus-within:outline-primary-400 dark:focus-visible:bg-primary-500 dark:active:enabled:bg-primary-500 w-full sm:w-32">
+          <FiPlus className="icon h-4 w-4" />
+          <span>Add User</span>
+        </button>
       </div>
     </div>
   );
