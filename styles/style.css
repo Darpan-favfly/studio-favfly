@@ -1,0 +1,386 @@
+:root {
+  --color-primary-50: 245 243 255;
+  --color-primary-100: 237 233 254;
+  --color-primary-200: 221 214 254;
+  --color-primary-300: 196 181 253;
+  --color-primary-400: 167 139 250;
+  --color-primary-500: 139 92 246;
+  --color-primary-600: 124 58 237;
+  --color-primary-700: 109 40 217;
+  --color-primary-800: 91 33 182;
+  --color-primary-900: 76 29 149;
+  --color-primary-950: 46 16 101;
+  --color-muted-50: 248 250 252;
+  --color-muted-100: 241 245 249;
+  --color-muted-200: 226 232 240;
+  --color-muted-300: 203 213 225;
+  --color-muted-400: 148 163 184;
+  --color-muted-500: 100 116 139;
+  --color-muted-600: 71 85 105;
+  --color-muted-700: 51 65 85;
+  --color-muted-800: 30 41 59;
+  --color-muted-900: 15 23 42;
+  --color-muted-950: 2 6 23;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ==== start text styles ===== */
+.text-muted-400,
+.hover\:text-muted-400:hover {
+  color: rgb(var(--color-muted-400) / 1);
+}
+
+.text-muted-300,
+.hover\:text-muted-300:hover {
+  color: rgb(var(--color-muted-300) / 1);
+}
+
+.text-primary-500,
+.hover\:text-primary-500:hover {
+  color: rgb(var(--color-primary-500) / 1);
+}
+/* ==== end text styles ===== */
+
+/* ==== start background styles ===== */
+.bg-primary-100,
+.hover\:bg-primary-100:hover {
+  background-color: rgb(var(--color-primary-100) / 1);
+}
+
+.bg-muted-100 {
+  background-color: rgb(var(--color-muted-100) / 1);
+}
+
+.bg-primary-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-primary-500) / 1);
+  background-color: rgb(var(--color-primary-500) / var(--tw-bg-opacity));
+}
+
+.bg-website {
+  background-color: #fcc60e;
+}
+
+.bg-seo {
+  background-color: #5595f7;
+}
+
+.bg-smm {
+  background-color: #4ab565;
+}
+/* ==== start background styles ===== */
+
+/* ===== start border classes =====  */
+.border-muted-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--color-muted-300) / var(--tw-border-opacity));
+}
+
+.group:hover .group-hover\:ring-primary-500 {
+  --tw-ring-color: rgb(var(--color-primary-500) / 1);
+}
+
+.border-muted-200 {
+  border-color: rgb(var(--color-muted-200) / 1);
+}
+
+.hover\:ring-muted-200:hover {
+  --tw-ring-color: rgb(var(--color-muted-200) / 1);
+}
+
+/* ===== end border classes =====  */
+
+/* ===== start placeholder classes =====  */
+.placeholder\:\!text-transparent::placeholder {
+  color: transparent !important;
+}
+
+.placeholder\:text-muted-100\/30::placeholder {
+  color: rgb(var(--color-muted-100) / 0.3);
+}
+
+.placeholder\:text-muted-300::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-muted-300) / 1);
+  color: rgb(var(--color-muted-300) / var(--tw-text-opacity));
+}
+
+.placeholder\:text-transparent::placeholder {
+  color: transparent;
+}
+/* ===== end placeholder classes =====  */
+
+/* ===== start nui classes =====  */
+
+.nui-focus {
+  outline-color: transparent;
+  outline-offset: 2px;
+  outline-style: dashed;
+  outline-width: 1px;
+}
+.nui-focus:hover {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(var(--tw-ring-offset-width))
+    var(--tw-ring-color);
+  box-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width)
+      var(--tw-ring-offset-color),
+    var(--tw-ring-inset) 0 0 0 calc(var(--tw-ring-offset-width))
+      var(--tw-ring-color),
+    0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow, 0 0 #0000);
+  outline-style: dashed;
+}
+
+.nui-focus:hover {
+  outline-color: rgb(var(--color-muted-300) / 1);
+}
+
+/* ===== end nui classes =====  */
+
+/* ===== start tooltips styles ===== */
+[data-tooltip] {
+  position: relative;
+  display: inline-block;
+}
+
+[data-tooltip]:before {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -12px);
+  z-index: 1000;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  opacity: 0;
+  transition: opacity 0.35s ease 0.25s;
+}
+[data-tooltip]:before {
+  content: attr(data-tooltip);
+  background: #343e4e;
+  color: #fff;
+  font-size: 14px;
+  padding: 4px 10px;
+  white-space: nowrap;
+  bottom: 100%;
+  border-radius: 3px;
+  /* box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.65); */
+}
+
+[data-tooltip]:active:before,
+[data-tooltip]:focus:before,
+[data-tooltip]:hover:before {
+  opacity: 1;
+}
+[data-tooltip].tooltip-multiline:before {
+  width: 100vw;
+  max-width: 240px;
+  white-space: normal;
+}
+
+[data-tooltip][class*="tooltip-bottom"]:before {
+  transform: translate(-50%, 12px);
+}
+[data-tooltip][class*="tooltip-bottom"]:before {
+  bottom: auto;
+  top: 100%;
+}
+[data-tooltip].tooltip-bottom-left:before {
+  transform: translate(-24px, 12px);
+}
+[data-tooltip].tooltip-bottom-right:before {
+  left: auto;
+  right: 50%;
+  transform: translate(24px, 12px);
+}
+[data-tooltip].tooltip-top-left:before {
+  transform: translate(-24px, -12px);
+}
+[data-tooltip].tooltip-top-right:before {
+  left: auto;
+  right: 50%;
+  transform: translate(24px, -12px);
+}
+
+[data-tooltip][class*="tooltip-right"]:before {
+  transform: translate(12px, -50%);
+}
+
+[data-tooltip][class*="tooltip-right"]:before {
+  left: 100%;
+  top: 50%;
+  bottom: auto;
+  border-left-color: #333;
+}
+/* ===== end tooltips styles ===== */
+
+/* ===== start dark mode classes =====  */
+:is(.dark .nui-focus:hover) {
+  outline-color: rgb(var(--color-muted-600) / 1);
+}
+
+:is(.dark .dark\:bg-muted-900) {
+  background-color: rgb(var(--color-muted-900) / 1);
+  background-color: rgb(var(--color-muted-900) / 1);
+}
+
+:is(.dark .dark\:border-muted-700) {
+  border-color: rgb(var(--color-muted-700) / 1);
+}
+:is(.dark .dark\:bg-muted-800) {
+  background-color: rgb(var(--color-muted-800) / 1);
+  background-color: rgb(var(--color-muted-800) / 1);
+}
+
+:is(.dark .dark\:bg-primary-500\/10) {
+  background-color: rgb(var(--color-primary-500) / 0.1);
+}
+
+.dark [data-tooltip]:before {
+  background: #292e4e;
+}
+
+:is(.dark .dark\:ring-offset-muted-900) {
+  --tw-ring-offset-color: rgb(var(--color-muted-900) / 1);
+}
+
+:is(.dark .dark\:hover\:ring-muted-700:hover) {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(var(--color-muted-700) / var(--tw-ring-opacity));
+}
+
+:is(.dark .dark\:divide-muted-700) > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(var(--color-muted-700) / var(--tw-divide-opacity));
+}
+
+:is(.dark .is-button-default) {
+  --tw-border-opacity: 1;
+  --tw-bg-opacity: 1;
+  --tw-text-opacity: 1;
+  background-color: rgb(var(--color-muted-700) / 1);
+  background-color: rgb(var(--color-muted-700) / var(--tw-bg-opacity));
+  border-color: rgb(var(--color-muted-600) / var(--tw-border-opacity));
+  color: #fff;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+:is(.dark .is-button-default:hover) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-muted-600) / 1);
+  background-color: rgb(var(--color-muted-600) / var(--tw-bg-opacity));
+}
+
+:is(.dark .is-button:focus-within) {
+  outline-color: rgb(var(--color-muted-600) / 1);
+}
+
+/* ===== end dark mode classes =====  */
+
+/* ===== start button classes =====  */
+.is-button-default {
+  --tw-border-opacity: 1;
+  --tw-bg-opacity: 1;
+  --tw-text-opacity: 1;
+  background-color: #fff;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  border-color: rgb(var(--color-muted-300) / var(--tw-border-opacity));
+  border-width: 1px;
+  color: rgb(var(--color-muted-700) / 1);
+  color: rgb(var(--color-muted-700) / var(--tw-text-opacity));
+
+  font-family: Inter, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  padding: 0.5rem 1.25rem;
+  text-decoration-line: none;
+  transition-duration: 0.3s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  align-items: center;
+  display: inline-flex;
+  height: 2.5rem;
+  justify-content: center;
+  position: relative;
+
+  outline-color: transparent;
+  outline-offset: 2px;
+  outline-style: dashed;
+  outline-width: 1px;
+}
+
+.is-button-default:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-muted-50) / 1);
+  background-color: rgb(var(--color-muted-50) / var(--tw-bg-opacity));
+}
+
+.is-button {
+  font-family: Inter, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  padding: 0.5rem 1.25rem;
+  text-decoration-line: none;
+  transition-duration: 0.3s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  align-items: center;
+  display: inline-flex;
+  height: 2.5rem;
+  justify-content: center;
+  position: relative;
+  outline-color: transparent;
+  outline-offset: 2px;
+  outline-style: dashed;
+  outline-width: 1px;
+}
+
+.is-button > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-left: 0.25rem;
+  margin-left: calc(0.25rem * (1 - var(--tw-space-x-reverse)));
+  margin-right: 0;
+  margin-right: calc(0.25rem * var(--tw-space-x-reverse));
+}
+
+.is-button:hover {
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.is-button:focus-within {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(var(--tw-ring-offset-width))
+    var(--tw-ring-color);
+  box-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width)
+      var(--tw-ring-offset-color),
+    var(--tw-ring-inset) 0 0 0 calc(var(--tw-ring-offset-width))
+      var(--tw-ring-color),
+    0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow, 0 0 #0000);
+  outline-color: rgb(var(--color-muted-300) / 1);
+  outline-style: dashed;
+}
+
+/* ===== end button classes =====  */
+
+/* ===== start icon classes =====  */
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* ===== end icon classes =====  */
