@@ -1,6 +1,6 @@
 import { FiCalendar, FiSearch, FiPlus } from "react-icons/fi";
 
-const CompaniesList = () => {
+const CompanyList = () => {
   return (
     <>
       {/* ===== filter ===== */}
@@ -193,4 +193,4 @@ const Filter = () => {
   );
 };
 
-export default CompaniesList;
+export default CompanyList;

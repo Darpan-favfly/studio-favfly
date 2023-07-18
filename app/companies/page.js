@@ -1,9 +1,9 @@
-import CompaniesList from "@/components/company/CompaniesList";
+import CompanyList from "@/components/company/CompanyList";
 
 const CompaniesPage = () => {
   return (
     <>
-      <CompaniesList />
+      <CompanyList />
     </>
   );
 };

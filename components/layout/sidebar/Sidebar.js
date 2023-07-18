@@ -10,6 +10,7 @@ import {
   FiGlobe,
   FiSlack,
   FiSettings,
+  FiBriefcase,
 } from "react-icons/fi";
 import { BiRocket } from "react-icons/bi";
 import SidebarItem from "./SidebarItem";
@@ -20,6 +21,7 @@ const Sidebar = () => {
     { title: "Projects", link: "/projects", icon: <BiRocket /> },
     { title: "Clients", link: "/clients", icon: <FiUsers /> },
     { title: "Companies", link: "/companies", icon: <FiGlobe /> },
+    { title: "Services", link: "/services", icon: <FiBriefcase /> },
     { title: "Invoices", link: "/invoices", icon: <FiFileText /> },
     { title: "Quotes", link: "/quotes", icon: <FiFile /> },
     { title: "Referrals", link: "/referrals", icon: <FiGift /> },
