@@ -11,6 +11,7 @@ import {
   FiSlack,
   FiSettings,
   FiBriefcase,
+  FiLayout,
 } from "react-icons/fi";
 import { BiRocket } from "react-icons/bi";
 import SidebarItem from "./SidebarItem";
@@ -26,6 +27,7 @@ const Sidebar = () => {
     { title: "Quotes", link: "/quotes", icon: <FiFile /> },
     { title: "Referrals", link: "/referrals", icon: <FiGift /> },
     { title: "Team Members", link: "/team-members", icon: <FiSlack /> },
+    { title: "Studio", link: "/studio", icon: <FiLayout /> },
   ];
 
   const bottomItems = [

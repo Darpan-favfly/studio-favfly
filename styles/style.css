@@ -239,7 +239,7 @@
 [data-tooltip].tooltip-top-right:before {
   left: auto;
   right: 50%;
-  transform: translate(24px, -12px);
+  transform: translate(24px, -6px);
 }
 
 [data-tooltip][class*="tooltip-right"]:before {

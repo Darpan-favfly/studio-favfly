@@ -28,7 +28,7 @@ const Header = () => {
     { title: "Invoices", link: "/invoices", icon: <FiFileText /> },
     { title: "Quotes", link: "/quotes", icon: <FiFile /> },
     { title: "Referrals", link: "/referrals", icon: <FiGift /> },
-    { title: "Team Members", link: "/team-members", icon: <FiSlack /> },
+    { title: "Team Members", link: "/members", icon: <FiSlack /> },
   ];
 
   return (
@@ -38,7 +38,7 @@ const Header = () => {
         .map((item, index) => (
           <h6
             key={index}
-            className="flex font-heading text-lg font-light leading-normal text-muted-800 dark:text-white font-medium">
+            className="flex font-heading text-lg font-light leading-normal text-muted-800 dark:text-white">
             <span className="h-100 flex items-center justify-center text-primary-500 me-2 text-2xl">
               {item?.icon}
             </span>

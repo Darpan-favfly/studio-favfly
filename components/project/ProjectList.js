@@ -1,18 +1,33 @@
-const ProjectList = () => {
+import dayjs from "dayjs";
+
+const ProjectList = ({ data }) => {
   return (
     <>
-      <div>
-        <div className="space-y-2 pt-6">
-          <ProjectListItem show={true} />
-          <ProjectListItem />
-          <ProjectListItem />
-        </div>
+      <div className="space-y-2 pt-6">
+        {data?.map((item, index) => (
+          <ProjectListItem key={index} data={item} show={index == 0} />
+        ))}
       </div>
     </>
   );
 };
 
-const ProjectListItem = ({ show }) => {
+const ProjectListItem = ({ data, show }) => {
+  const {
+    renewDate,
+    status,
+    projectType,
+    company,
+    initialStartDate,
+    closedDate,
+    startDate,
+  } = data;
+
+  const colors = {
+    bgSuccess: "bg-green-500",
+    bgWarning: "bg-red-500",
+  };
+
   return (
     <div className="border-muted-200 dark:border-muted-700 dark:bg-muted-800 w-full border bg-white transition-all duration-300 rounded-md relative px-2 py-6 sm:py-4">
       <div className="flex w-full flex-col sm:flex-row sm:items-center">
@@ -21,7 +36,7 @@ const ProjectListItem = ({ show }) => {
             className={`text-muted-400 absolute font-sans text-xs font-medium uppercase sm:-top-10 sm:start-2 ${
               show ? "hidden sm:block" : "hidden"
             } `}>
-            user
+            Project
           </span>
           <div className="relative inline-flex shrink-0 items-center justify-center outline-none h-12 w-12 rounded-full bg-primary-500/20 text-primary-500">
             <div className="flex h-full w-full items-center justify-center overflow-hidden text-center transition-all duration-300 rounded-full">
@@ -33,15 +48,18 @@ const ProjectListItem = ({ show }) => {
             </div>
 
             <div className="dark:bg-muted-800 absolute z-10 block overflow-hidden rounded-full bg-white h-4 w-4 bottom-0 end-0">
-              <div className="relative h-full w-full scale-75 rounded-full bg-green-600"></div>
+              <div
+                className={`relative h-full w-full scale-75 rounded-full ${
+                  status == "active" ? colors?.bgSuccess : colors?.bgWarning
+                }`}></div>
             </div>
           </div>
           <div>
             <h4 className="font-heading text-sm font-medium leading-tight text-muted-700 dark:text-muted-100">
-              <span>Website</span>
+              <span>{projectType}</span>
             </h4>
             <p className="font-alt text-xs font-normal leading-tight text-muted-500 dark:text-muted-400">
-              <span>Reverse Factor</span>
+              <span>{company?.brandName}</span>
             </p>
           </div>
         </div>
@@ -51,10 +69,10 @@ const ProjectListItem = ({ show }) => {
               className={`text-muted-400 absolute start-8 top-1/2 mx-auto -translate-y-1/2 text-center font-sans text-xs font-medium uppercase sm:inset-x-0 sm:-top-10 sm:translate-y-0 ${
                 show ? "" : "sm:hidden"
               }`}>
-              Onboarding Date
+              Initial Start Date
             </span>
             <span className="text-muted-500 dark:text-muted-400 font-sans text-sm">
-              23 Jul, 22
+              {dayjs(initialStartDate).format("DD MMM, YYYY")}
             </span>
           </div>
           <div className="relative flex h-8 items-center justify-end px-6 sm:h-10 sm:justify-center sm:px-2 w-full sm:w-40">
@@ -65,7 +83,7 @@ const ProjectListItem = ({ show }) => {
               Start date
             </span>
             <span className="text-muted-500 dark:text-muted-400 font-sans text-sm">
-              2 Aug, 22
+              {dayjs(startDate).format("DD MMM, YYYY")}
             </span>
           </div>
           <div className="relative flex h-8 items-center justify-end px-6 sm:h-10 sm:justify-center sm:px-2 w-full sm:w-40">
@@ -76,7 +94,7 @@ const ProjectListItem = ({ show }) => {
               Renew date
             </span>
             <span className="text-muted-500 dark:text-muted-400 font-sans text-sm">
-              2 Aug, 22
+              {dayjs(renewDate).format("DD MMM, YYYY")}
             </span>
           </div>
           <div className="relative flex h-8 items-center justify-end px-6 sm:h-10 sm:justify-center sm:px-2 w-full sm:w-40">
@@ -87,7 +105,7 @@ const ProjectListItem = ({ show }) => {
               Close date
             </span>
             <span className="text-muted-500 dark:text-muted-400 font-sans text-sm">
-              27 Aug, 22
+              {dayjs(closedDate).format("DD MMM, YYYY")}
             </span>
           </div>
           <div className="relative flex h-8 items-center justify-end px-6 sm:h-10 sm:justify-center sm:px-2 w-full sm:w-16">
