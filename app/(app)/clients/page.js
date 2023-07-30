@@ -8,6 +8,7 @@ const ClientsPage = async () => {
       contactedPerson {
         role,
         "client": client -> {
+          _id,
           "image": profileImage.asset -> url,
           name,
           email,

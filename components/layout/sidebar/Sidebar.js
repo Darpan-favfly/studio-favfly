@@ -26,7 +26,7 @@ const Sidebar = () => {
     { title: "Invoices", link: "/invoices", icon: <FiFileText /> },
     { title: "Quotes", link: "/quotes", icon: <FiFile /> },
     { title: "Referrals", link: "/referrals", icon: <FiGift /> },
-    { title: "Team Members", link: "/team-members", icon: <FiSlack /> },
+    { title: "Team Members", link: "/members", icon: <FiSlack /> },
     { title: "Studio", link: "/studio", icon: <FiLayout /> },
   ];
 

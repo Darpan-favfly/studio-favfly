@@ -8,10 +8,13 @@ const CompaniesPage = async () => {
     brandName,
     joinedDate,
     status,
-    "members": teamMembers[] -> {
+    "members": teamMembers[]{
+      role,
+      "client": client -> {
         name,
         "image": profileImage.asset -> url,
-      },
+      } 
+    },
     "projects": projects[] -> {
       projectType
     },

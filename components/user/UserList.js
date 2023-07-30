@@ -6,12 +6,19 @@ import {
   FiLinkedin,
   FiTwitter,
   FiYoutube,
-  FiPhone,
   FiSearch,
   FiPlus,
+  FiAlertTriangle,
 } from "react-icons/fi";
-import { BsWhatsapp } from "react-icons/bs";
+
 import Link from "next/link";
+import ContactButtons from "./ContactButtons";
+
+import daysLeft from "@/utils/modules/daysLeft";
+
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 
 const UserList = ({ data }) => {
   return (
@@ -38,16 +45,13 @@ const UserListItem = ({ data, warning }) => {
     { title: "youtube", icon: <FiYoutube /> },
   ];
 
-  const {
-    lastContacted,
-    dob,
-    image,
-    name,
-    email,
-    phoneNumber,
-    whatsappNumber,
-    socialMediaHandles,
-  } = data?.contactedPerson?.client;
+  const { lastContacted, dob, image, name, email, socialMediaHandles } =
+    data?.contactedPerson?.client;
+
+  const today = dayjs();
+  const daysSinceLastContact = today.diff(dayjs(lastContacted), "day");
+
+  const birthdayRemain = daysLeft(dob);
 
   return (
     <div className="border-muted-200 dark:border-muted-700 dark:bg-muted-800 relative w-full border bg-white transition-all duration-300 rounded-md hover:shadow-muted-300/30 dark:hover:shadow-muted-800/30 hover:shadow-xl">
@@ -57,17 +61,31 @@ const UserListItem = ({ data, warning }) => {
             <p className="font-heading text-base font-medium leading-none">
               Birthday
             </p>
-            <p className="font-alt text-xs font-normal leading-normal text-muted-400">
-              26 days to go
-            </p>
-          </div>
-          <div className="tooltip-left" data-tooltip="5 days ago">
-            {!warning ? (
-              <FiCheckCircle className="icon text-success-500 h-6 w-6" />
-            ) : (
-              <FiInfo className="icon text-warning-500 h-6 w-6" />
+            {dob && (
+              <p className="font-alt text-xs font-normal leading-normal text-muted-400">
+                {birthdayRemain == 0
+                  ? "Congrats 🎉"
+                  : birthdayRemain > 7
+                  ? dayjs(dob).format("DD MMMM")
+                  : `${birthdayRemain} days remain`}
+              </p>
             )}
           </div>
+          {lastContacted ? (
+            <div
+              className="tooltip-left"
+              data-tooltip={dayjs(lastContacted).fromNow()}>
+              {daysSinceLastContact <= 7 ? (
+                <FiCheckCircle className="icon text-success-500 h-6 w-6" />
+              ) : (
+                <FiInfo className="icon text-warning-500 h-6 w-6" />
+              )}
+            </div>
+          ) : (
+            <div className="tooltip-left" data-tooltip="No client interaction.">
+              <FiAlertTriangle className="icon text-danger-500 h-6 w-6" />
+            </div>
+          )}
         </div>
       </div>
       <div className="p-6">
@@ -114,23 +132,7 @@ const UserListItem = ({ data, warning }) => {
         </div>
 
         {/* ===== buttons area ===== */}
-        <div className="flex items-center gap-2">
-          {/* ===== whatsapp button ===== */}
-          <button
-            type="button"
-            className="is-button rounded is-button-default w-full">
-            <BsWhatsapp className="icon h-4 w-4" />
-            <span>Whatsapp</span>
-          </button>
-
-          {/* ===== call button ===== */}
-          <button
-            type="button"
-            className="is-button rounded is-button-default w-full">
-            <FiPhone className="icon h-4 w-4" />
-            <span>Talk</span>
-          </button>
-        </div>
+        <ContactButtons data={data?.contactedPerson?.client} />
       </div>
     </div>
   );

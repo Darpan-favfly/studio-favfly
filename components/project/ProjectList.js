@@ -38,13 +38,11 @@ const ProjectListItem = ({ data, show }) => {
             } `}>
             Project
           </span>
-          <div className="relative inline-flex shrink-0 items-center justify-center outline-none h-12 w-12 rounded-full bg-primary-500/20 text-primary-500">
-            <div className="flex h-full w-full items-center justify-center overflow-hidden text-center transition-all duration-300 rounded-full">
-              <img
-                src="https://tairo.cssninja.io/img/avatars/25.svg"
-                className="max-h-full max-w-full object-cover shadow-sm dark:border-transparent h-12 w-12"
-                alt=""
-              />
+          <div className="relative inline-flex shrink-0 items-center justify-center outline-none h-12 w-12 rounded-full">
+            <div className="h-full w-full flex items-center justify-center bg-website rounded-full">
+              <span class="text-muted-500 font-sans font-medium uppercase text-lg">
+                W
+              </span>
             </div>
 
             <div className="dark:bg-muted-800 absolute z-10 block overflow-hidden rounded-full bg-white h-4 w-4 bottom-0 end-0">
@@ -58,7 +56,7 @@ const ProjectListItem = ({ data, show }) => {
             <h4 className="font-heading text-sm font-medium leading-tight text-muted-700 dark:text-muted-100">
               <span>{projectType}</span>
             </h4>
-            <p className="font-alt text-xs font-normal leading-tight text-muted-500 dark:text-muted-400">
+            <p className="font-alt text-xs font-normal leading-none text-muted-400 dark:text-muted-400  mt-1">
               <span>{company?.brandName}</span>
             </p>
           </div>

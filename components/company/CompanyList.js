@@ -41,12 +41,15 @@ const CompanyListItem = ({ data }) => {
       <div className="flex flex-col items-center justify-center gap-3 text-center sm:flex-row sm:justify-start sm:text-left">
         {/* ===== start company logo ===== */}
         <div className="relative inline-flex shrink-0 items-center justify-center outline-none h-16 w-16 rounded-full">
-          <div className="flex h-full w-full items-center justify-center overflow-hidden text-center transition-all duration-300 rounded-full">
-            <img
+          <div className="flex h-full w-full items-center justify-center overflow-hidden text-center transition-all duration-300 rounded-full bg-yellow-300">
+            {/* <img
               src={logo}
               alt={brandName}
-              className="max-h-full max-w-full object-cover shadow-sm dark:border-transparent h-16 w-16"
-            />
+              className="max-h-full max-w-full object-cover shadow-sm dark:border-transparent h-full w-full scale-75"
+            /> */}
+            <span class="text-muted-500 font-sans font-medium uppercase text-xl">
+              MD
+            </span>
           </div>
           <div className="dark:bg-muted-800 absolute z-10 block overflow-hidden rounded-full bg-white h-5 w-5 bottom-0 end-0">
             <div
@@ -94,7 +97,7 @@ const CompanyListItem = ({ data }) => {
             <p
               className="font-heading text-base font-semibold leading-normal text-muted-800 dark:text-muted-100"
               tag="h3">
-              <span>{projects?.length}</span>
+              <span>{projects?.length || 0}</span>
             </p>
             <p className="font-alt text-base font-semibold leading-none text-muted-400 !text-[0.65rem] uppercase">
               <span>Projects</span>
@@ -109,7 +112,7 @@ const CompanyListItem = ({ data }) => {
               className="font-heading text-base font-semibold leading-normal text-muted-800 dark:text-muted-100"
               tag="h3">
               <span>
-                {lifetimeValue.toLocaleString("en-IN", {
+                {lifetimeValue?.toLocaleString("en-IN", {
                   style: "currency",
                   currency: "INR",
                 }) || 0}
@@ -128,7 +131,7 @@ const CompanyListItem = ({ data }) => {
               className="font-heading text-base font-semibold leading-normal text-muted-800 dark:text-muted-100"
               tag="h3">
               <span>
-                {monthlyIncome.toLocaleString("en-IN", {
+                {monthlyIncome?.toLocaleString("en-IN", {
                   style: "currency",
                   currency: "INR",
                 }) || 0}
@@ -148,13 +151,13 @@ const CompanyListItem = ({ data }) => {
               <div
                 key={index}
                 className="dark:bg-muted-800 relative flex shrink-0 items-center justify-center rounded-full bg-white transition-all duration-100 ease-in h-8 w-8 -ms-2 hover:-ms-4 hover:me-2 focus:-ms-4 focus:me-2 tooltip-top-right"
-                data-tooltip={item?.name}>
+                data-tooltip={`${item?.client?.name} (${item?.role})`}>
                 <div
                   className="relative inline-flex shrink-0 items-center justify-center outline-none h-8 w-8 rounded-full bg-primary-500/20 text-primary-500 !scale-90"
                   tabindex="0">
                   <div className="flex h-full w-full items-center justify-center overflow-hidden text-center transition-all duration-300 rounded-full">
                     <img
-                      src={item?.image}
+                      src={item?.client?.image}
                       className="max-h-full max-w-full object-cover shadow-sm dark:border-transparent h-8 w-8"
                     />
                   </div>
