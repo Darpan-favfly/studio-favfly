@@ -1,11 +1,10 @@
-"use client";
 // ===== import components =====
 import BottomBar from "@/components/layout/bottomBar/BottomBar";
 import Header from "@/components/layout/header/Header";
 import Sidebar from "@/components/layout/sidebar/Sidebar";
 
 // ===== import context api =====
-import ContextProvider from "@/contexts/contextProvider";
+import Provider from "@/components/provider/Provider";
 
 // ===== css styles =====
 import "@/styles/globals.css";
@@ -26,7 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ContextProvider>
+        <Provider>
           <main className="bg-muted-100 dark:bg-muted-900">
             <Header />
             <Sidebar />
@@ -35,7 +34,7 @@ export default function RootLayout({ children }) {
             </div>
             <BottomBar />
           </main>
-        </ContextProvider>
+        </Provider>
       </body>
     </html>
   );
